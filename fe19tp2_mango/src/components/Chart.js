@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import {Pie, Doughnut} from 'react-chartjs-2';
+import React, { Component } from 'react';
+import { Pie , Line} from 'react-chartjs-2'
+import { response } from '../components/Home/response'
+
 
 const state = {
-    labels: ['January', 'February', 'March',
-        'April', 'May'],
+    labels: ['id', 'id', 'id'],
     datasets: [
         {
             label: 'Rainfall',
@@ -21,45 +22,63 @@ const state = {
                 '#003350',
                 '#35014F'
             ],
-            data: [65, 59, 80, 81, 56]
+            data: [15, 40, 50, 70, 20]
         }
     ]
 }
 
+console.log(response)
+
+
 export default class Chart extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+
+    }
     render() {
         return (
             <div>
-                <Pie
+                <Line
                     data={state}
+                    width={1000}
+                    height={300}
                     options={{
                         title: {
                             display: true,
-                            text: 'Average Rainfall per month',
+                            text: 'Antal fall per månad',
                             fontSize: 20
                         },
                         legend: {
                             display: true,
                             position: 'right'
                         }
+                        
                     }}
                 />
 
-                <Doughnut
+                <Pie
                     data={state}
+                    width={2000}
+                    height={400}
                     options={{
                         title: {
                             display: true,
-                            text: 'Average Rainfall per month',
+                            text: 'Antal fall per månad',
                             fontSize: 20
                         },
                         legend: {
                             display: true,
                             position: 'right'
                         }
+
                     }}
-                />
+                    />
             </div>
         );
     }
 }
+
+
