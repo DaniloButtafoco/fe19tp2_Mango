@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Pie , Line} from 'react-chartjs-2'
-import { response } from '../components/Home/response'
+import { response, getMonthlyCrimesObject } from '../Home/response'
 
+const monthlyCrimes = getMonthlyCrimesObject();
+const labels = Object.keys(monthlyCrimes)
+const data = Object.values(monthlyCrimes)
 
 const state = {
-    labels: ['id', 'id', 'id'],
+    labels: labels,
     datasets: [
         {
-            label: 'Rainfall',
+            label: 'Brott',
             backgroundColor: [
                 '#B21F00',
                 '#C9DE00',
@@ -22,7 +25,7 @@ const state = {
                 '#003350',
                 '#35014F'
             ],
-            data: [15, 40, 50, 70, 20]
+            data: data
         }
     ]
 }
@@ -30,7 +33,7 @@ const state = {
 console.log(response)
 
 
-export default class Chart extends React.Component {
+class Chart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -81,4 +84,5 @@ export default class Chart extends React.Component {
     }
 }
 
+export default Chart;
 
