@@ -12001,6 +12001,18 @@ export const response = [
   }
 ]
 
-const filterCrimes = (str) => response.filter(crime => crime.title_type.toLowerCase().includes(str.toLowerCase()));
+const filterCrimesByType = (str) => response.filter(crime => crime.title_type.toLowerCase().includes(str.toLowerCase()));
+const filterCrimesByLocation = (str) => response.filter(crime => crime.title_location.toLowerCase().includes(str.toLowerCase()));
+console.log(filterCrimesByLocation('Robertsfors'))
 
-con
+export const months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
+
+const getArrayOfMonthlyCrimes = () => {
+return months.map((month, index) => {
+  let count = response.reduce((acc, crime) => {
+    if (crime.pubdate_iso8601.s)
+  }, 0)
+})
+}
+/* {januari: 23, februari: 2, mars: 6} */
+
