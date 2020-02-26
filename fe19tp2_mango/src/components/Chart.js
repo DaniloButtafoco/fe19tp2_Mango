@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import {Pie, Doughnut} from 'react-chartjs-2';
+import {Pie, Doughnut, Line} from 'react-chartjs-2';
+
+
+
 
 const state = {
-    labels: ['January', 'February', 'March',
-        'April', 'May'],
+    labels: [],
     datasets: [
         {
-            label: 'Rainfall',
+            label: 'Crimes',
             backgroundColor: [
                 '#B21F00',
                 '#C9DE00',
@@ -26,16 +28,20 @@ const state = {
     ]
 }
 
+
 export default class Chart extends React.Component {
     render() {
+
         return (
             <div>
+                <div>
                 <Pie
                     data={state}
+                    
                     options={{
                         title: {
                             display: true,
-                            text: 'Average Rainfall per month',
+                            text: 'Crimes per month',
                             fontSize: 20
                         },
                         legend: {
@@ -44,22 +50,25 @@ export default class Chart extends React.Component {
                         }
                     }}
                 />
-
-                <Doughnut
-                    data={state}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'Average Rainfall per month',
-                            fontSize: 20
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
-                        }
-                    }}
-                />
-            </div>
+                </div>
+                <div>
+                    <Line
+                        data={state}
+                        options={{
+                            title: {
+                                display: true,
+                                text: 'Crimes per month',
+                                fontSize: 20
+                            },
+                            legend: {
+                                display: true,
+                                position: 'right'
+                            }
+                        }}
+                    />
+                </div>
+                </div>
+                
         );
     }
 }

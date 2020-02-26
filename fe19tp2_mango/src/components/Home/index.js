@@ -2,15 +2,19 @@ import React from 'react';
 import { withAuthorization } from '../Session';
 import axios from 'axios'
 import { Line, Bar } from 'react-chartjs-2';
-import Chart  from '../Chart'
+import Chart from '../Chart'
+import { ChartContainer, ChartItem} from './index.styles.js'
+import './index.css'
+
 
 
 class HomePage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            result: null,
-        }
+            result: [],
+        };
+        
 
     }
     componentDidMount() {
@@ -20,24 +24,30 @@ class HomePage extends React.Component {
         }
         axios({
             method: 'get',
-            url: `https://cors-anywhere.herokuapp.com/https://brottsplatskartan.se/api/events/? limit=100`
+            url: `https://cors-anywhere.herokuapp.com/https://brottsplatskartan.se/api/events? limit=300`
         })
             .then(result => {
+                
                 console.log(result)
-                this.setState({ result: result.data.data })
+                this.setState({ result: result.data.data})
                 console.log(this.state.result)
+                
             })
             .catch(err => {
                 console.log(err)
             })
     }
+
+
     render() {
         return (
+            
             <div>
-                <h1>Home Page</h1>
-                <p>The Home Page is accessible by every signed in user.</p>
-                <Chart ></Chart>
+                <Chart id='Charts' />
             </div>
+        
+                
+            
 
         )
     }
