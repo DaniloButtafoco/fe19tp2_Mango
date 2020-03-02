@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import styles from '../SignIn/index.css'
 
 import { compose } from 'recompose';
 import { SignUpLink } from '../SignUp';
@@ -10,7 +11,7 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
-    <div>
+    <div className='SignInPage_div'>
         <h1>Sign In</h1>
         <SignInForm />
         <PasswordForgetLink />
@@ -50,7 +51,7 @@ class SignInFormBase extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <input
-                    name="email"
+                    className="name" name="email"
                     value={email}
                     onChange={this.onChange}
                     type="text"

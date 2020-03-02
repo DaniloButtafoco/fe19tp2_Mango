@@ -44,7 +44,7 @@ class AdminPage extends Component {
         );
     }
 }
-const UserList = ({ users }) => (
+export const UserList = ({ users }) => (
     <ul>
         {users.map(user => (
             <li key={user.uid}>

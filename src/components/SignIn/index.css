@@ -1,0 +1,35 @@
+.SignInPage_div {
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    width: 799px;
+    height: 362px;
+    left: 320px;
+    top: 220px;
+    border-radius: 8px;
+
+}
+
+.SignInPage_div > h1, form, a, p {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.SignInPage_div > h1 {
+    font-size: 70px;
+}
+
+input{
+padding: 6px 10px;
+margin-right: 10px;
+border: 2px solid lightgray;
+border-radius: 4px;
+}
+
+.SignInPage_div > form > button{
+    padding: 6px 10px;
+    border: 4px solid lightgray;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}

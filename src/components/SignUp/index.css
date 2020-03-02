@@ -1,0 +1,29 @@
+.SignUpPage_div > h1 {
+    text-align: center;
+}
+
+.SignUpPage_div > form {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 0 auto;
+    
+}
+
+.SignUpPage_div > form > button{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.SignUpPage_div > form > label {
+    margin-top: 15px;
+}
+
+.SignUpPage_div > form > input{
+    padding: 7px;
+    margin-top: 16px;
+}
+
