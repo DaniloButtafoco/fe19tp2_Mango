@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Pie , Line} from 'react-chartjs-2'
+import { Pie, Line } from 'react-chartjs-2'
 import { response, getMonthlyCrimesObject } from '../Home/response'
-
+import Styled from 'styled-components'
 const monthlyCrimes = getMonthlyCrimesObject();
 const labels = Object.keys(monthlyCrimes)
 const data = Object.values(monthlyCrimes)
@@ -32,6 +32,40 @@ const state = {
 
 console.log(response)
 
+const ChartContainer = Styled.div`
+width: 100%;
+height: 100%;
+border: 1px solid lightgrey;
+margin-top: 20px;
+
+`
+const Column = Styled.div`
+padding-left: 15%;
+display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 10px 10px;
+  
+
+`
+const Container = Styled.div`
+width: 60%;
+ 
+`
+/*
+<Column>
+<ChartContainer><Line/></ChartContainer>
+<ChartContainer><Pie/></ChartContainer>
+</Column>
+<Column>
+<ChartContainer><Line/></ChartContainer>
+<ChartContainer><Pie/></ChartContainer>
+</Column>
+<Column>
+<ChartContainer><Line/></ChartContainer>
+<ChartContainer><Pie/></ChartContainer>
+</Column>
+*/
 
 class Chart extends React.Component {
     constructor(props) {
@@ -43,43 +77,116 @@ class Chart extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Line
-                    data={state}
-                    width={1000}
-                    height={300}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'Antal fall per månad',
-                            fontSize: 20
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
-                        }
-                        
-                    }}
-                />
+            <Container>
+                <Column>
+                    <ChartContainer>
+                        <Line
+                            data={state}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Antal fall per månad',
+                                    fontSize: 20
+                                },
+                                legend: {
+                                    display: true,
+                                },
 
-                <Pie
-                    data={state}
-                    width={2000}
-                    height={400}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'Antal fall per månad',
-                            fontSize: 20
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
-                        }
+                            }}
 
-                    }}
-                    />
-            </div>
+                        />
+                    </ChartContainer>
+
+
+                    <ChartContainer>
+                        <Pie
+                            data={state}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Antal fall per månad',
+                                    fontSize: 20
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'bottom',
+
+                                },
+
+
+                            }}
+                        />
+                    </ChartContainer>
+                    <ChartContainer>
+                        <Pie
+                            data={state}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Antal fall per månad',
+                                    fontSize: 20
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                }
+
+                            }}
+                        />
+                    </ChartContainer>
+                    <ChartContainer>
+                        <Pie
+                            data={state}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Antal fall per månad',
+                                    fontSize: 20
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                }
+
+                            }}
+                        />
+                    </ChartContainer>
+                    <ChartContainer>
+                        <Pie
+                            data={state}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Antal fall per månad',
+                                    fontSize: 20
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                }
+
+                            }}
+                        />
+                    </ChartContainer>
+                    <ChartContainer>
+                        <Pie
+                            data={state}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Antal fall per månad',
+                                    fontSize: 20
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                }
+
+                            }}
+                        />
+                    </ChartContainer>
+                </Column>
+            </Container>
         );
     }
 }

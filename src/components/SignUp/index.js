@@ -9,7 +9,7 @@ import * as ROLES from '../../constants/roles';
 
 const SignUpPage = () => (
     <div className="SignUpPage_div">
-        <h1>SignUp</h1>
+        <h1>Skapa Konto</h1>
         <SignUpForm />
     </div>
 );
@@ -122,7 +122,7 @@ class SignUpFormBase extends Component {
 }
 const SignUpLink = () => (
     <p>
-        Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+        Har du inte ett konto? <Link to={ROUTES.SIGN_UP}>Skapa Konto</Link>
     </p>
 );
 

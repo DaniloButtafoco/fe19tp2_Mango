@@ -18,32 +18,34 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
+    <div className='sideBar'>
     <ul>
         {/* <li>
         <Link to={ROUTES.LANDING}>Landing</Link>
     </li> */}
-        <li>
-            <Link to={ROUTES.HOME}>Home</Link>
-        </li> <li>
-            <Link to={ROUTES.ACCOUNT}>Account</Link>
+        <li className='sideBar_link'>
+            <Link to={ROUTES.HOME}>Hem</Link>
+            </li> <li className='sideBar_link'>
+            <Link to={ROUTES.ACCOUNT}>Konto</Link>
         </li>
         {authUser.roles.includes(ROLES.ADMIN) && (
-            <li>
+                <li className='sideBar_link'>
                 <Link to={ROUTES.ADMIN}>Admin</Link>
             </li>
         )}
-        <li>
+            <li className='sideBar_link'>
             <SignOutButton />
         </li> </ul>
+            </div>
 );
-
-const NavigationNonAuth = () => (
+        
+        const NavigationNonAuth = () => (
     <ul>
         {/*  <li>
             <Link to={ROUTES.LANDING}>Landing</Link>
         </li> */}
         <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+            <Link to={ROUTES.SIGN_IN}>Logga In</Link>
         </li>
     </ul>
 );

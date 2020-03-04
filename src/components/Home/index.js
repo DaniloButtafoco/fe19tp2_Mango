@@ -4,6 +4,7 @@ import axios from 'axios'
 import Chart from '../Chart';
 
 
+
 class HomePage extends React.Component {
     constructor(props) {
         super(props)
