@@ -12002,7 +12002,10 @@ export const response = [
 ]
 
 const filterCrimesByType = (str) => response.filter(crime => crime.title_type.toLowerCase().includes(str.toLowerCase()));
+const filterCustomCrimesByType = (response, str) => response.filter(crime => crime.title_type.toLowerCase().includes(str.toLowerCase()));
 const filterCrimesByLocation = (str) => response.filter(crime => crime.title_location.toLowerCase().includes(str.toLowerCase()));
+
+
 console.log(filterCrimesByLocation('Robertsfors'))
 
 const months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
@@ -12022,27 +12025,57 @@ export const getMonthlyCrimesObject = () => {
   return Object.assign({}, ...results);
 };
 
+export const getCustomMonthlyCrimesObject = (response) => {
+  const results = months.map((month, index) => {
+    let count = response.reduce((acc, crime) => {
+      if (parseInt(crime.pubdate_iso8601.substring(5, 7)) === index + 1) {
+        return acc + 1
+      } else {
+        return acc;
+      }
+    }, 0);
+    return ({ [month]: count });
+  });
+  return Object.assign({}, ...results);
+};
 // {1: 12, 2: 20, 3: 30}
 
 export const getDailyCrimesObject = (month) => {
-const filteredCrimes = response.filter(crime => parseInt(crime.pubdate_iso8601.substring(5, 7)) === month);
-console.log(filteredCrimes)
-const results = filteredCrimes.reduce((acc, cur) => {
-  const key = parseInt(cur.pubdate_iso8601.substring(8, 10)); // 01, 02, 03 osv
-  console.log("key: " + key)
-  if (acc[key]) {
-    acc[key] = acc[key] + 1
-  } else {
-    acc[key] = 1
-  }
-  return acc;
-  console.log(acc);
-  //.substring(5, 7)
-}, {})
+  const filteredCrimes = response.filter(crime => parseInt(crime.pubdate_iso8601.substring(5, 7)) === month);
+  console.log(filteredCrimes)
+  const results = filteredCrimes.reduce((acc, cur) => {
+    const key = parseInt(cur.pubdate_iso8601.substring(8, 10)); // 01, 02, 03 osv
+    console.log("key: " + key)
+    if (acc[key]) {
+      acc[key] = acc[key] + 1
+    } else {
+      acc[key] = 1
+    }
+    return acc;
+    console.log(acc);
+    //.substring(5, 7)
+  }, {})
 
-return results;
+  return results;
 }
+export const getCustomDailyCrimesObject = (response, month) => {
+  const filteredCrimes = response.filter(crime => parseInt(crime.pubdate_iso8601.substring(5, 7)) === month);
+  console.log(filteredCrimes)
+  const results = filteredCrimes.reduce((acc, cur) => {
+    const key = parseInt(cur.pubdate_iso8601.substring(8, 10)); // 01, 02, 03 osv
+    console.log("key: " + key)
+    if (acc[key]) {
+      acc[key] = acc[key] + 1
+    } else {
+      acc[key] = 1
+    }
+    return acc;
+    console.log(acc);
+    //.substring(5, 7)
+  }, {})
 
+  return results;
+}
 console.log(getDailyCrimesObject(2));
 /* {1: 23, 2: 2, 3: 6} */
 

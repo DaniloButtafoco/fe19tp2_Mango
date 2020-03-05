@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Pie, Line } from 'react-chartjs-2'
 import { response, getMonthlyCrimesObject, getCustomMonthlyCrimesObject, getCustomDailyCrimesObject } from '../Home/response'
-import { getCustomCrimeTypes } from '../Home/helper';
-
 import Styled from 'styled-components'
 
 const monthlyCrimes = getMonthlyCrimesObject();
-
+// TODO: byt ut mot Chart/index.js på github
 const labels = Object.keys(monthlyCrimes)
 const data = Object.values(monthlyCrimes)
 console.log("hardcoded:")
@@ -109,13 +107,13 @@ class Chart extends React.Component {
     }
     render() {
         const monthlyCrimes = getCustomMonthlyCrimesObject(this.props.result);
-        const dailyCrimes = getCustomDailyCrimesObject(this.props.result, 3);
-        console.log(getCustomCrimeTypes(this.props.result))
-        //const labels = Object.keys(monthlyCrimes)
-        //const data = Object.values(monthlyCrimes)
+        const monthlyCrimes = getCustomMonthlyCrimesObject(this.props.result);
 
-        //console.log("api")
-        //console.log(data)
+        const labels = Object.keys(monthlyCrimes)
+        const data = Object.values(monthlyCrimes)
+
+        console.log("api")
+        console.log(data)
         return (
             <Container>
                 <Column>
@@ -138,7 +136,7 @@ class Chart extends React.Component {
                     </ChartContainer>
                     <ChartContainer>
                         <Line
-                            data={makeChartData(dailyCrimes)}
+                            data={state}
                             options={{
                                 title: {
                                     display: true,
