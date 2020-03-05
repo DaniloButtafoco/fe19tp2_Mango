@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
+import styles from '../Admin/index.css'
 
 import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
