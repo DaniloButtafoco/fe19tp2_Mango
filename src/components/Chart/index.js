@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Pie, Line } from 'react-chartjs-2'
-import { response, getMonthlyCrimesObject, getCustomMonthlyCrimesObject, getCustomDailyCrimesObject } from '../Home/response'
+import { response, getMonthlyCrimesObject, getCustomMonthlyCrimesObject, getCustomDailyCrimesObject, getCustomCrimesTodayObject, getCrimesByType } from '../Home/response'
 import { getCustomCrimeTypes } from '../Home/helper';
 
 import Styled from 'styled-components'
@@ -65,24 +65,23 @@ const makeChartData = (crimes) => {
 console.log(response)
 
 const ChartContainer = Styled.div`
-width: 100%;
-height: 100%;
 border: 1px solid lightgrey;
-margin-top: 20px;
+border-radius: 8px;
+width: 100%;
 
 `
 const Column = Styled.div`
-padding-left: 15%;
 display: grid;
- grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
- grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 10px 10px;
+padding-left: 15%;
+grid-template-columns: 350px 350px 400px;
+grid-template-rows: 250px auto 200px; 
+grid-column-gap: 10px;
+grid-row-gap: 15px;
 border: 1px;
 
 `
 const Container = Styled.div`
-width: 60%;
- 
+margin-top: 10%;
 `
 /*
 <Column>
@@ -108,9 +107,17 @@ class Chart extends React.Component {
 
     }
     render() {
+        const today = new Date();
+        const dateToday = today.getDate();
+
         const monthlyCrimes = getCustomMonthlyCrimesObject(this.props.result);
-        const dailyCrimes = getCustomDailyCrimesObject(this.props.result, 3);
-        console.log(getCustomCrimeTypes(this.props.result))
+        const dailyCrimes = getCustomDailyCrimesObject(this.props.result, 3); // {1: 243, 2: 140, 6: 24}
+        const crimeTypes = getCrimesByType(response);
+
+        //const todaysCrimes = getCustomCrimesTodayObject(this.props.result);
+        const todayCrimeCount = dailyCrimes[dateToday] || 0 // 29
+
+        console.log(getCustomCrimeTypes(this.props.result));
         //const labels = Object.keys(monthlyCrimes)
         //const data = Object.values(monthlyCrimes)
 
@@ -155,12 +162,12 @@ class Chart extends React.Component {
                     </ChartContainer>
 
                     <ChartContainer>
-                        <Pie
-                            data={state}
+                        <Line
+                            data={makeChartData(dailyCrimes)}
                             options={{
                                 title: {
                                     display: true,
-                                    text: 'Antal fall per månad',
+                                    text: 'Typ av brott',
                                     fontSize: 20
                                 },
                                 legend: {
@@ -175,11 +182,11 @@ class Chart extends React.Component {
                     </ChartContainer>
                     <ChartContainer>
                         <Pie
-                            data={state}
+                            data={makeChartData(crimeTypes)}
                             options={{
                                 title: {
                                     display: true,
-                                    text: 'Antal fall per månad',
+                                    text: 'Typ av brott',
                                     fontSize: 20
                                 },
                                 legend: {
@@ -196,7 +203,7 @@ class Chart extends React.Component {
                             options={{
                                 title: {
                                     display: true,
-                                    text: 'Antal fall per månad',
+                                    text: 'Senaste typ av brott',
                                     fontSize: 20
                                 },
                                 legend: {
@@ -207,40 +214,7 @@ class Chart extends React.Component {
                             }}
                         />
                     </ChartContainer>
-                    <ChartContainer>
-                        <Pie
-                            data={state}
-                            options={{
-                                title: {
-                                    display: true,
-                                    text: 'Antal fall per månad',
-                                    fontSize: 20
-                                },
-                                legend: {
-                                    display: true,
-                                    position: 'bottom'
-                                }
-
-                            }}
-                        />
-                    </ChartContainer>
-                    <ChartContainer>
-                        <Pie
-                            data={state}
-                            options={{
-                                title: {
-                                    display: true,
-                                    text: 'Antal fall per månad',
-                                    fontSize: 20
-                                },
-                                legend: {
-                                    display: true,
-                                    position: 'bottom'
-                                }
-
-                            }}
-                        />
-                    </ChartContainer>
+                    <div>{todayCrimeCount} brott hittils idag</div>
                 </Column>
             </Container>
         );
