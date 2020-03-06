@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import styles from '../SignIn/index.css'
+import styles from './index.css'
 
 import { compose } from 'recompose';
 import { SignUpLink } from '../SignUp';
@@ -11,11 +11,15 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
-    <div className='SignInPage_div'>
+    <div className='SignInBackground'>
+        
+        <div className='SignInPage_div'>
         <h1>Logga in</h1>
         <SignInForm />
         <PasswordForgetLink />
         <SignUpLink />
+        </div>
+      
     </div>
 );
 const INITIAL_STATE = {
