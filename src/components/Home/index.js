@@ -41,5 +41,6 @@ class HomePage extends React.Component {
     }
 }
 
+console.log('hej');
 const condition = authUser => !!authUser;
 export default withAuthorization(condition)(HomePage);
