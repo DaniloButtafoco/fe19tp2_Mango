@@ -1,0 +1,10 @@
+.todayCount{
+    font-size: 100px;
+    text-align: center;
+    color: red;
+}
+
+.todayCount > p{
+    font-size: 20px;
+    color: black;
+}

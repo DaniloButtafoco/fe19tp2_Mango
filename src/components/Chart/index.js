@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Pie, Line } from 'react-chartjs-2'
 import { response, getMonthlyCrimesObject, getCustomMonthlyCrimesObject, getCustomDailyCrimesObject, getCustomCrimesTodayObject, getCrimesByType } from '../Home/response'
 import { getCustomCrimeTypes } from '../Home/helper';
+import styles from '../Chart/index.css'
 
 import Styled from 'styled-components'
 
@@ -117,6 +118,9 @@ class Chart extends React.Component {
         //const todaysCrimes = getCustomCrimesTodayObject(this.props.result);
         const todayCrimeCount = dailyCrimes[dateToday] || 0 // 29
 
+
+
+
         console.log(getCustomCrimeTypes(this.props.result));
         //const labels = Object.keys(monthlyCrimes)
         //const data = Object.values(monthlyCrimes)
@@ -126,6 +130,9 @@ class Chart extends React.Component {
         return (
             <Container>
                 <Column>
+                    <ChartContainer>
+                        <div className='todayCount'>{todayCrimeCount} <p>brott hittils idag</p></div>
+                    </ChartContainer>
                     <ChartContainer>
                         <Line
                             data={makeChartData(monthlyCrimes)}
@@ -161,25 +168,7 @@ class Chart extends React.Component {
                         />
                     </ChartContainer>
 
-                    <ChartContainer>
-                        <Line
-                            data={makeChartData(dailyCrimes)}
-                            options={{
-                                title: {
-                                    display: true,
-                                    text: 'Typ av brott',
-                                    fontSize: 20
-                                },
-                                legend: {
-                                    display: true,
-                                    position: 'bottom',
 
-                                },
-
-
-                            }}
-                        />
-                    </ChartContainer>
                     <ChartContainer>
                         <Pie
                             data={makeChartData(crimeTypes)}
@@ -197,24 +186,9 @@ class Chart extends React.Component {
                             }}
                         />
                     </ChartContainer>
-                    <ChartContainer>
-                        <Pie
-                            data={state}
-                            options={{
-                                title: {
-                                    display: true,
-                                    text: 'Senaste typ av brott',
-                                    fontSize: 20
-                                },
-                                legend: {
-                                    display: true,
-                                    position: 'bottom'
-                                }
 
-                            }}
-                        />
-                    </ChartContainer>
-                    <div>{todayCrimeCount} brott hittils idag</div>
+
+
                 </Column>
             </Container>
         );

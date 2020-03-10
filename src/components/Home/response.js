@@ -827,6 +827,7 @@ console.log(filterCrimesByLocation('Stockholm'))
 const months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
 
 
+
 // skriv en funktion som stegar igenom arrayen CrimeTypes
 //console.log(response.length)
 const crimeTypes = ['Trafik', 'Våld', 'Narkotika', 'Stöld']
