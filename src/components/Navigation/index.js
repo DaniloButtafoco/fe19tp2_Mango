@@ -19,7 +19,7 @@ const Navigation = () => (
 
 const NavigationAuth = ({ authUser }) => (
     <div className='sideBar'>
-    <ul>
+    <ul className='sideBar_links'>
         {/* <li>
         <Link to={ROUTES.LANDING}>Landing</Link>
     </li> */}
@@ -45,7 +45,7 @@ const NavigationAuth = ({ authUser }) => (
             <Link to={ROUTES.LANDING}>Landing</Link>
         </li> */}
         <li>
-            <Link to={ROUTES.SIGN_IN}>Logga In</Link>
+            <Link className='loggaINLanding' to={ROUTES.SIGN_IN}>Logga In</Link>
         </li>
     </ul>
 );

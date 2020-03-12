@@ -43,14 +43,14 @@ class AdminPage extends Component {
     }
 }
 export const UserList = ({ users }) => (
-    <ul>
+    <ul className="adminPageList">
         {users.map(user => (
-            <li key={user.uid}>
+            <li className="adminPageID" key={user.uid}>
                 <span>
-                    <strong>ID:</strong> {user.uid}
+                    <strong>ID:</strong> {user.uid} <n></n>
                 </span>
                 <span>
-                    <strong>E-Mail:</strong> {user.email}
+                    <strong>E-Mail:</strong>{user.email} <n></n>
                 </span>
                 <span>
                     <strong>Username:</strong> {user.username}

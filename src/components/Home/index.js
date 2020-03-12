@@ -1,6 +1,7 @@
 import React from 'react';
 import { withAuthorization } from '../Session';
 import axios from 'axios'
+import styles from '../Home/index.css'
 import Chart from '../Chart';
 
 
@@ -34,7 +35,7 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div>{this.state.result ? <Chart result={this.state.result} /> : <p>loading...</p>}
+            <div>{this.state.result ? <Chart result={this.state.result} /> : <p className='laddar'>laddar...</p>}
                 {/* <TestChart />*/}
             </div>
         )

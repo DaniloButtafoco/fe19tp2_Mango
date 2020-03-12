@@ -945,7 +945,6 @@ const crimes = (day) => getCustomDailyCrimesObject(response, 2)[day]
 console.log(getDailyCrimesObject(2));
 console.log(crimes(25));
 /* {1: 23, 2: 2, 3: 6} */
-console.log('hej');
 
 //console.log(getArrayOfMonthlyCrimes())
 

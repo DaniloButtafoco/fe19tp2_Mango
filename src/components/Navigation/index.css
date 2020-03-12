@@ -2,18 +2,18 @@ li {
     list-style-type: none;
 }
 
-ul{
+.sideBar_links{
     display: flex;
     flex-direction: column;
     width: 15%;
     top: 0;
     padding-left: 0;
-    margin-top: 25%;
+    margin-top: 20%;
 }
 
 .sideBar{
 height: 100%;
-width: 10%; 
+width: 5%; 
 position: fixed; 
 z-index: 1; 
 top: 0; 
@@ -24,7 +24,6 @@ padding-top: 20px;
 border-right: 1px solid lightgray;
 
 }
-
 
 hr{
     display: none;
@@ -44,8 +43,14 @@ a:hover, a:visited, a:link, a:active{
 .sideBar_link {
 margin-bottom: 50px;
 font-weight: bold;
+margin-left: 70%;
 }
 
 .sideBar_SignOut{
     width: 100px;
+    margin-left: 70%;
+}
+
+.loggaINLanding {
+    color: rgb(13, 19, 33, .92);
 }
