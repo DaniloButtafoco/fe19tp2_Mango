@@ -24,16 +24,16 @@ const NavigationAuth = ({ authUser }) => (
         <Link to={ROUTES.LANDING}>Landing</Link>
     </li> */}
         <li className='sideBar_link'>
-            <Link to={ROUTES.HOME}>Hem</Link>
+            <Link to={ROUTES.HOME}>HEM</Link>
             </li> <li className='sideBar_link'>
-            <Link to={ROUTES.ACCOUNT}>Konto</Link>
+            <Link to={ROUTES.ACCOUNT}>KONTO</Link>
         </li>
         {authUser.roles.includes(ROLES.ADMIN) && (
                 <li className='sideBar_link'>
-                <Link to={ROUTES.ADMIN}>Admin</Link>
+                <Link to={ROUTES.ADMIN}>ADMIN</Link>
             </li>
         )}
-            <li className='sideBar_link'>
+            <li className='sideBar_SignOut'>
             <SignOutButton />
         </li> </ul>
             </div>

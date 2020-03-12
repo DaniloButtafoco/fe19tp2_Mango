@@ -5,10 +5,10 @@ li {
 ul{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 15%;
     top: 0;
     padding-left: 0;
+    margin-top: 25%;
 }
 
 .sideBar{
@@ -25,13 +25,27 @@ border-right: 1px solid lightgray;
 
 }
 
-.sideBar_link{
-    padding-top: 16px;
-    padding-left: 10px;
-}
 
 hr{
     display: none;
 }
 
 
+a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
+
+.sideBar{
+    width: 15vw;
+    display:flex;
+    align-items: flex-start;
+}
+
+.sideBar_link {
+margin-bottom: 50px;
+font-weight: bold;
+}
+
+.sideBar_SignOut{
+    width: 100px;
+}

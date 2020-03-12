@@ -18,11 +18,15 @@ const state = {
         {
             label: 'Brott',
             backgroundColor: [
-                '#B21F00',
-                '#C9DE00',
-                '#2FDE00',
-                '#00A6B4',
-                '#6800B4'
+                '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600'
+
             ],
             hoverBackgroundColor: [
                 '#501800',
@@ -45,18 +49,18 @@ const makeChartData = (crimes) => {
             {
                 label: 'Brott',
                 backgroundColor: [
-                    '#B21F00',
-                    '#C9DE00',
-                    '#2FDE00',
-                    '#00A6B4',
-                    '#6800B4'
+                    '#003f5c',
+                    '#58508d',
+                    '#bc5090',
+                    '#ff6361',
+                    '#ffa600'
                 ],
                 hoverBackgroundColor: [
-                    '#501800',
-                    '#4B5000',
-                    '#175000',
-                    '#003350',
-                    '#35014F'
+                    '#ccc',
+                    '#ccc',
+                    '#ccc',
+                    '#ccc',
+                    '#ccc'
                 ],
                 data: data
             }
@@ -66,23 +70,29 @@ const makeChartData = (crimes) => {
 console.log(response)
 
 const ChartContainer = Styled.div`
-border: 1px solid lightgrey;
-border-radius: 8px;
+box-shadow:
+  0 0.5px 3.6px -4px rgba(0, 0, 0, 0.14),
+  0 1.3px 10px -4px rgba(0, 0, 0, 0.098),
+  0 3px 24.1px -4px rgba(0, 0, 0, 0.083),
+  0 10px 80px -4px rgba(0, 0, 0, 0.057)
+;
+
+border-radius: 10px;
 width: 100%;
 
 `
 const Column = Styled.div`
 display: grid;
-padding-left: 15%;
-grid-template-columns: 350px 350px 400px;
-grid-template-rows: 250px auto 200px; 
-grid-column-gap: 10px;
-grid-row-gap: 15px;
+padding-left: 20%;
+grid-template-columns: 550px 550px;
+grid-template-rows: 325px 325px; 
+grid-column-gap: 20px;
+grid-row-gap: 20px;
 border: 1px;
 
 `
 const Container = Styled.div`
-margin-top: 10%;
+margin-top: 2%;
 `
 /*
 <Column>
@@ -131,7 +141,7 @@ class Chart extends React.Component {
             <Container>
                 <Column>
                     <ChartContainer>
-                        <div className='todayCount'>{todayCrimeCount} <p>brott hittils idag</p></div>
+                        <div className='todayCount'>{todayCrimeCount} <p>brott hittills idag</p></div>
                     </ChartContainer>
                     <ChartContainer>
                         <Line
@@ -140,11 +150,26 @@ class Chart extends React.Component {
                                 title: {
                                     display: true,
                                     text: 'Antal fall per månad',
-                                    fontSize: 20
+                                    fontSize: 20,
                                 },
                                 legend: {
                                     display: true,
                                 },
+                                layout:{
+                                    padding:{
+                                        left:50,
+                                        right:0,
+                                        bottom:0,
+                                        top:0,
+
+                                    margin:{
+                                        top:10,
+                                    },
+
+                
+                                    },
+
+                                }
 
                             }}
 
