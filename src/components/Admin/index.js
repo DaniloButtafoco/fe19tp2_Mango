@@ -36,7 +36,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <h1>Admin</h1>
-                {loading && <div>Loading ...</div>}
+                {loading && <div className="loadingAdmin">Loading ...</div>}
                 <UserList users={users} />
             </div>
         );
