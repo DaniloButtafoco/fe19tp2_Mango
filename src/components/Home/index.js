@@ -26,7 +26,8 @@ class HomePage extends React.Component {
             .then(result => {
                 console.log(result)
                 this.setState({ result: result.data.data })
-                //console.log(this.state.result)
+                console.log(this.state.result)
+
             })
             .catch(err => {
                 console.log(err)

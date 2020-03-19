@@ -853,7 +853,7 @@ console.log(getCrimesByType(response));
 
 // crimTypes.forEach(crime => crime)
 
-const monthDays = [31, 29, 31, 30, 31]
+const monthDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 export const getMonthlyCrimesObject = () => {
   const results = months.map((month, index) => {
     let count = response.reduce((acc, crime) => {
@@ -868,7 +868,7 @@ export const getMonthlyCrimesObject = () => {
   return Object.assign({}, ...results);
 };
 
-export const getCustomMonthlyCrimesObject = (response) => {
+export const getCustomMonthlyCrimesObject = () => {
   const results = months.map((month, index) => {
     let count = response.reduce((acc, crime) => {
       if (parseInt(crime.pubdate_iso8601.substring(5, 7)) === index + 1) {
@@ -882,6 +882,8 @@ export const getCustomMonthlyCrimesObject = (response) => {
   return Object.assign({}, ...results);
 };
 // {1: 12, 2: 20, 3: 30}
+
+const weekDays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag']
 
 export const getDailyCrimesObject = (month) => {
   const filteredCrimes = response.filter(crime => parseInt(crime.pubdate_iso8601.substring(5, 7)) === month);

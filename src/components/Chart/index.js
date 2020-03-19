@@ -123,7 +123,7 @@ class Chart extends React.Component {
 
         const monthlyCrimes = getCustomMonthlyCrimesObject(this.props.result);
         const dailyCrimes = getCustomDailyCrimesObject(this.props.result, 3); // {1: 243, 2: 140, 6: 24}
-        const crimeTypes = getCrimesByType(response);
+        const crimeTypes = getCrimesByType(this.props.result);
 
         //const todaysCrimes = getCustomCrimesTodayObject(this.props.result);
         const todayCrimeCount = dailyCrimes[dateToday] || 0 // 29
